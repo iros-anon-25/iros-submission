@@ -3,14 +3,14 @@
 import { useState } from "react";
 
 const PAPER_TITLE = "Robot Planning and Situation Handling with Active Perception";
-const CONFERENCE = "IROS 2025";
+const CONFERENCE = "IROS 2026";
 
-const BIBTEX = `@inproceedings{anonymous2025vaptamp,
+const BIBTEX = `@inproceedings{anonymous2026vaptamp,
   title     = {Robot Planning and Situation Handling with Active Perception},
   author    = {Anonymous},
   booktitle = {Proceedings of the IEEE/RSJ International Conference
                on Intelligent Robots and Systems (IROS)},
-  year      = {2025},
+  year      = {2026},
   note      = {Anonymous submission}
 }`;
 
@@ -191,7 +191,7 @@ export default function Home() {
 
         {/* Overview figure */}
         <img
-          src="https://docs.google.com/drawings/d/1Xe8Uqj2lsfOZ4iCLSyxKKJJC6xO02GQLL752yRJ4_IE/export/png"
+          src="/vap-tamp/figures/overview-1.png"
           alt="VAP-TAMP System Overview"
           className="w-full rounded-xl border border-gray-100 shadow-sm"
         />
@@ -253,28 +253,88 @@ export default function Home() {
 
       {/* ── RESULTS ── */}
       <Section id="results" title="Results">
-        <p className="text-center text-gray-600 mb-8 text-base">
-          [Summary sentence about your experimental results.]
+        <p className="text-center text-gray-600 mb-10 text-base max-w-2xl mx-auto">
+          VAP-TAMP achieves 88% task success on real-world mobile manipulation tasks, outperforming
+          state-of-the-art baselines by actively perceiving and recovering from unforeseen situations
+          during plan execution.
         </p>
 
-        <div className="overflow-x-auto mb-10">
-          <div className="min-w-full bg-gray-50 rounded-xl border border-gray-200 p-6 text-center text-gray-400 text-sm font-mono">
-            [Quantitative results table — e.g., comparison with baselines]
+        {/* Row 1: Success rate by task + Success vs time */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div>
+            <img
+              src="/vap-tamp/figures/success_rate-1.png"
+              alt="Success rates by task"
+              className="w-full rounded-xl border border-gray-100 shadow-sm"
+            />
+            <p className="text-xs text-gray-500 mt-2 italic text-left">
+              <strong>Figure 4:</strong> Success rates by task. VAP-TAMP maintains consistent
+              performance across all tasks, while baselines show larger variance.
+            </p>
+          </div>
+          <div>
+            <img
+              src="/vap-tamp/figures/success_vs_time-1.png"
+              alt="Success rate vs execution time"
+              className="w-full rounded-xl border border-gray-100 shadow-sm"
+            />
+            <p className="text-xs text-gray-500 mt-2 italic text-left">
+              <strong>Figure 5:</strong> Success rate vs. execution time. Points closer to the
+              top-left indicate better overall performance. VAP-TAMP achieves the highest success
+              rate with the lowest execution time.
+            </p>
           </div>
         </div>
 
-        <h3 className="text-xl font-semibold text-gray-700 text-center mb-6">
-          Qualitative Results
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {["Scenario A", "Scenario B", "Scenario C", "Scenario D"].map((s) => (
-            <div key={s} className="text-center">
-              <Placeholder label={`Result — ${s}`} aspect="video" />
-              <p className="text-xs text-gray-500 mt-2 italic">
-                [{s}: caption here]
-              </p>
-            </div>
-          ))}
+        {/* Row 2: Verification strategy comparison */}
+        <div className="mb-10">
+          <img
+            src="/vap-tamp/figures/verification_strategy-1.png"
+            alt="Verification strategy comparison"
+            className="w-full rounded-xl border border-gray-100 shadow-sm"
+          />
+          <p className="text-xs text-gray-500 mt-2 italic text-center">
+            <strong>Figure 6:</strong> Situation handling evaluation in simulation comparing
+            verification strategies.
+          </p>
+        </div>
+
+        {/* Row 3: Situation distribution + Failure modes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div>
+            <img
+              src="/vap-tamp/figures/situation_distribution-1.png"
+              alt="Distribution of situations across tasks"
+              className="w-full rounded-xl border border-gray-100 shadow-sm"
+            />
+            <p className="text-xs text-gray-500 mt-2 italic text-left">
+              <strong>Figure 7:</strong> Distribution of situations across tasks. Flows connect
+              tasks (left) to situation type (right), with occurrence count.
+            </p>
+          </div>
+          <div>
+            <img
+              src="/vap-tamp/figures/failure_mode-1.png"
+              alt="Failure mode distribution"
+              className="w-full rounded-xl border border-gray-100 shadow-sm"
+            />
+            <p className="text-xs text-gray-500 mt-2 italic text-left">
+              <strong>Figure 8:</strong> Failure mode distribution across all methods.
+            </p>
+          </div>
+        </div>
+
+        {/* Row 4: Viewpoint analysis */}
+        <div className="max-w-xl mx-auto">
+          <img
+            src="/vap-tamp/figures/viewpoint_analysis-1.png"
+            alt="Viewpoint efficiency analysis"
+            className="w-full rounded-xl border border-gray-100 shadow-sm"
+          />
+          <p className="text-xs text-gray-500 mt-2 italic text-center">
+            <strong>Figure 9:</strong> Viewpoint efficiency: (a) distribution of viewpoints
+            required per uncertainty resolution, (b) average viewpoints with standard deviation.
+          </p>
         </div>
       </Section>
 
