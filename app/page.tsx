@@ -105,7 +105,7 @@ export default function Home() {
 
         <p className="text-gray-600 text-lg mb-8 max-w-3xl mx-auto">
           Austine Oloo, Zainab Altaweel, Yohei Hayamizu, Peiqi Liu, Yan Ding, Saeid Amiri,
-          Hao Yang, Andy Kaminski, Chad Esselink, Chris Paxton, et&nbsp;al.
+          Hao Yang, Andy Kaminski, Chad Esselink, Chris Paxton, Xiaohan Zhang, Shiqi Zhang
         </p>
 
         <p className="text-gray-500 text-base italic mb-8">
