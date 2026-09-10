@@ -7,10 +7,25 @@ const CONFERENCE = "IROS 2026";
 
 const PAPER_URL = "https://arxiv.org/pdf/2604.26988";
 
-const BIBTEX = `@article{oloo2026robot,
+const AUTHORS: { name: string; url?: string }[] = [
+  { name: "Austine Oloo", url: "https://aoloo-r.github.io/" },
+  { name: "Zainab Altaweel", url: "https://sites.google.com/view/zainabaltaweel/" },
+  { name: "Yohei Hayamizu", url: "https://yoheihayamizu.github.io/yhayamizu/" },
+  { name: "Peiqi Liu", url: "https://peiqi-liu.github.io/" },
+  { name: "Yan Ding", url: "https://yding25.com/" },
+  { name: "Saeid Amiri", url: "http://www.cs.binghamton.edu/~samiri1/" },
+  { name: "Hao Yang" },
+  { name: "Andy Kaminski" },
+  { name: "Chad Esselink" },
+  { name: "Chris Paxton", url: "https://cpaxton.github.io/" },
+  { name: "Xiaohan Zhang", url: "https://keke-220.github.io/" },
+  { name: "Shiqi Zhang", url: "http://www.cs.binghamton.edu/~szhang/" },
+];
+
+const BIBTEX = `@inproceedings{oloo2026robot,
   title={Robot Planning and Situation Handling with Active Perception},
-  author={Oloo, Austine and Altaweel, Zainab and Hayamizu, Yohei and Liu, Peiqi and Ding, Yan and Amiri, Saeid and Yang, Hao and Kaminski, Andy and Esselink, Chad and Paxton, Chris and others},
-  journal={arXiv preprint arXiv:2604.26988},
+  author={Oloo, Austine and Altaweel, Zainab and Hayamizu, Yohei and Liu, Peiqi and Ding, Yan and Amiri, Saeid and Yang, Hao and Kaminski, Andy and Esselink, Chad and Paxton, Chris and Zhang, Xiaohan and Zhang, Shiqi},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
   year={2026}
 }`;
 
@@ -104,8 +119,23 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-600 text-lg mb-8 max-w-3xl mx-auto">
-          Austine Oloo, Zainab Altaweel, Yohei Hayamizu, Peiqi Liu, Yan Ding, Saeid Amiri,
-          Hao Yang, Andy Kaminski, Chad Esselink, Chris Paxton, Xiaohan Zhang, Shiqi Zhang
+          {AUTHORS.map((author, i) => (
+            <span key={author.name}>
+              {author.url ? (
+                <a
+                  href={author.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-900 hover:underline underline-offset-4 transition-colors"
+                >
+                  {author.name}
+                </a>
+              ) : (
+                author.name
+              )}
+              {i < AUTHORS.length - 1 && ", "}
+            </span>
+          ))}
         </p>
 
         <p className="text-gray-500 text-base italic mb-8">
